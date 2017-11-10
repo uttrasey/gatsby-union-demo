@@ -1,5 +1,7 @@
-# gatsby-starter-default
-The default Gatsby starter
+# gatsby-union-demo
+A demo site showing how to specify custom union types, speifically with Contentful.
+
+Based on the example starter kit.
 
 For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
 
