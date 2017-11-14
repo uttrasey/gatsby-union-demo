@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { getRandomColor, invertColor } from '../colors'
-import { getCircleArea } from '../maths'
 
 const Shapes = styled.article`
   width: 100%;
@@ -50,7 +49,7 @@ const IndexPage = ({ data }) => (
           ({ node }) =>
             <Wrap key={node.id} bgcolor={getRandomColor()}>
               <Square {...node} />
-              <Area>◼️&nbsp; &nbsp;{node.sideLength * node.sideLength} ({node.sideLength} x {node.sideLength})</Area>
+              <Area>◼️&nbsp; &nbsp;{node.fields.area} ({node.sideLength} x {node.sideLength})</Area>
             </Wrap>
         )
       }
@@ -59,7 +58,7 @@ const IndexPage = ({ data }) => (
           ({ node }) =>
             <Wrap key={node.id} bgcolor={getRandomColor()}>
               <Circle bgcolor={getRandomColor()} radius={node.radius} />
-              <Area>⚫&nbsp; &nbsp;{getCircleArea(node.radius)} (r:{node.radius})</Area>
+              <Area>⚫&nbsp; &nbsp;{node.fields.area} (r:{node.radius})</Area>
             </Wrap>
         )
       }
@@ -74,16 +73,22 @@ export const query = graphql`
     squares: allContentfulSquare {
       edges {
         node {
-          sideLength
           id
+          sideLength
+          fields {
+            area
+          }
         }
       }
     }
     circles: allContentfulCircle {
       edges {
         node {
-          radius
           id
+          radius
+          fields {
+            area
+          }
         }
       }
     }
