@@ -73,7 +73,7 @@ const genAllShapesField = (CircleGql, SquareGql, allNodes) => {
 exports.enhanceSchema = ({ types, allNodes}) => {
   const CircleType = types[`contentfulCircle`].nodeObjectType
   const SqaureType = types[`contentfulSquare`].nodeObjectType
-  console.log('here');
+
   return new Promise((resolve, reject) => {
     const allShapes = genAllShapesField(CircleType, SqaureType, allNodes);
     resolve(allShapes)
