@@ -8,7 +8,7 @@ module.exports = {
         resolve: `gatsby-source-contentful`,
         options: {
           spaceId: `p9wvos6zyimj`,
-          accessToken: process.env.CMS_API_KEY
+          accessToken: `7f1a358e5546a3760c910aeb5acb8dbf29f359561d6f4d06a6c02374e700a292`
         }
       }
   ],

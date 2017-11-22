@@ -73,24 +73,40 @@ export const query = graphql`
     squares: allContentfulSquare {
       edges {
         node {
-          id
-          sideLength
-          fields {
-            area
-          }
+          ...sqaureFields
         }
       }
     }
     circles: allContentfulCircle {
       edges {
         node {
-          id
-          radius
-          fields {
-            area
-          }
+          ...circleFields
         }
       }
+    }
+    shapes: allShapes {
+      ... on ContentfulCircle {
+        ...circleFields
+      }
+      ... on ContentfulSquare {
+        ...sqaureFields
+      }
+    }
+  }
+
+  fragment circleFields on ContentfulCircle {
+    id
+    radius
+    fields {
+      area
+    }
+  }
+
+  fragment sqaureFields on ContentfulSquare {
+    id
+    sideLength
+    fields {
+      area
     }
   }
 `

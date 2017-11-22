@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     createNodeField({
       node,
       name: `area`,
-      value: node.sideLength * node.sideLength
+      value: node.sideLength * node.sideLength + 0.01 // hack for the moment to force GQLfloat
     })
   }
 
